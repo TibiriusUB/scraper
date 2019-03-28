@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="/">GameScrape</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="btn btn-success my-2 my-sm-0" href="/view">View Articles</a>
+        </li>
+        <li class="nav-item">
+          <a id="scrape" href="/scrape" class="btn btn-danger my-2 my-sm-0" type="button">Get New Articles</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="searching" class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <div>
+    {{!-- <img src="/assets/img/joyful.jpg" alt="JOYFUL BURGER" height="200" width="200"> --}}
+    {{{body}}}
+  </div>
+
+  <div class="footer">There's a Footer here!</div>
+  <script src="./javascripts/index.js"></script>
+
+</body>
+
+</html>
