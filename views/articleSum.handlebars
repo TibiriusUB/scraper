@@ -1,20 +1,15 @@
-<h1>{{title}}</h1>
+<a class="btn btn-info m-1" href="https://destructoid.com/{{url}}" ><h2>{{title}}</h2></a>
 
 <div class="container">
     <div class="row">
         <div class="col-8">
             <div class="justify-content-center">
-                <h2>{{Article_title}}</h2>
-                <h3>{{article_URL}}</h3>
-                <p>{{article_summary}}</p>
+                <p>{{summary}}</p>
             </div>
         </div>
         <div class="col-4">
             <div>
-                <form>
-                    <input>
-                    {{note}}
-                </form>
+                {{> note }}
             </div>
         </div>
     </div>

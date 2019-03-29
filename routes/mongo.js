@@ -8,8 +8,14 @@ module.exports = function (app) {
         // Grab every document in the Articles collection
         db.Article.find({})
             .then(function (dbArticle) {
-                // If we were able to successfully find Articles, send them back to the client
-                res.json(dbArticle);
+                var artObj= {
+                    title: "GameScrape: Articles",
+                    listings: "",
+                    articles:dbArticle
+                  };
+                  artObj.listings ="Articles displayed: "+artObj.articles.length
+                 //console.log(artObj.listings)
+                res.render('artView',artObj);
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client
@@ -25,7 +31,11 @@ module.exports = function (app) {
             .populate("note")
             .then(function (dbArticle) {
                 // If we were able to successfully find an Article with the given id, send it back to the client
-                res.json(dbArticle);
+               // res.json
+                
+              console.log(dbArticle);
+            res.render('articleSum',dbArticle);
+            //   };
             })
             .catch(function (err) {
                 // If an error occurred, send it to the client

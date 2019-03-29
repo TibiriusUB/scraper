@@ -9,11 +9,16 @@ module.exports = function (app) {
 
   // A GET route for scraping the website
   app.get("/scrape", function (req, res) {
+    var count = []
+    scraper( (count)=> {
+    console.log(count.length)
+    });
     // First, we grab the body of the html with axios
+    function scraper(cb) {
     axios.get("http://www.destructoid.com/").then(function (response) {
       // Then, we load that into cheerio and save it to $ for a shorthand selector
       var $ = cheerio.load(response.data);
-
+      
       // Now, we grab every h2 within an article tag, and do the following:
       $("article").each(function (i, element) {
         // Save an empty result object
@@ -34,15 +39,17 @@ module.exports = function (app) {
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
           .then(function (dbArticle) {
-            // View the added result in the console
-            console.log(dbArticle);
+          count.push(dbArticle)
+          //res.json(dbArticle)
           })
+          
           .catch(function (err) {
             // If an error occurred, log it
             console.log(err);
           });
       });
+      
     });
+  };
   });
-
 };

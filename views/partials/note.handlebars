@@ -1,8 +1,11 @@
-<div>
-    
-	<button class="change-state btn-sm btn-danger" data-id="{{id}}" data-newstate="{{noted}}">
-		{{#if noted}}Edit?{{else}}Save.{{/if}}
-	</button>
+<form>
 
-{{note}}
-</div>
+	<h2>Article Notes:</h2>
+      {{!-- // An input to enter a new title --}}
+    <input id='titleinput' name='title' value={{note.title}}>
+      {{!-- // A textarea to add a new note body --}}
+    <textarea id='bodyinput' name='body' value={{note.body}}></textarea>
+      {{!-- // A button to submit a new note, with the id of the article saved to it --}}
+    <button data-id={{note.id}} id='savenote'>Save Note</button>
+
+</form>
